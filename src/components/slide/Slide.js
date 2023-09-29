@@ -4,7 +4,7 @@ import { SplideSlide } from "@splidejs/react-splide";
 // Default theme
 import "@splidejs/react-splide/css";
 
-import { slideConfig } from "../../data/config";
+import { slideConfig } from "./config";
 import { StyledSlide } from "./style";
 
 const Slide = () => {
