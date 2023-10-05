@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "YOUR_API_BASE_URL",
+  baseURL: "https://backend-service-omu3.onrender.com",
 });
 
 // Add a request interceptor to include the access token in the request headers
