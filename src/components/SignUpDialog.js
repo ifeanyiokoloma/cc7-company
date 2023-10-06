@@ -1,5 +1,5 @@
 import { forwardRef, useContext, useState } from "react";
-import { ModalContext } from "../providers/context";
+import { DialogContext } from "../providers/context";
 import {
   DialogContent,
   DialogTitle,
@@ -18,7 +18,7 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog() {
+export default function SignUpDialog() {
   const [userInfo, setUserInfo] = useState({
     fname: "",
     username: "",
@@ -27,9 +27,9 @@ export default function FullScreenDialog() {
     tel: "",
     gender: "",
   });
-  const contextValue = useContext(ModalContext);
+  const contextValue = useContext(DialogContext);
 
-  const { handleClose, open } = contextValue;
+  const { handleCloseSignUp, openSignUp } = contextValue;
 
   const handleRegister = e => {
     const value = e.target.value;
@@ -58,13 +58,13 @@ export default function FullScreenDialog() {
     }
   };
 
-  // console.log(open);
+  console.log(openSignUp);
 
   return (
     <Dialog
       fullScreen
-      open={open === undefined ? false : open}
-      onClose={handleClose}
+      open={openSignUp === undefined ? false : openSignUp}
+      onClose={handleCloseSignUp}
       TransitionComponent={Transition}
       component="form"
       onSubmit={handleSubmit}

@@ -1,11 +1,11 @@
 import { Button } from "@mui/material";
 import React, { useContext } from "react";
-import { ModalContext } from "../providers/context";
+import { DialogContext } from "../providers/context";
 
 const SignUpBtn = () => {
-  const { handleOpen } = useContext(ModalContext);
+  const { handleOpenSignUp } = useContext(DialogContext);
   return (
-    <Button variant="outlined" sx={{color: "white", borderColor: "white" }} onClick={handleOpen}>
+    <Button variant="outlined" sx={{color: "white", borderColor: "white" }} onClick={handleOpenSignUp}>
       SignUp
     </Button>
   );

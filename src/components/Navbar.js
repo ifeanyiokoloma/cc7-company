@@ -9,6 +9,7 @@ import {
   List,
   ListItem,
   ListItemButton,
+  Stack,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -16,6 +17,7 @@ import { Menu } from "@mui/icons-material";
 import { navItems } from "../data/navItems";
 import { Link } from "react-router-dom";
 import SignUpBtn from "./SignUpBtn";
+import SignInBtn from "./SignInBtn";
 
 const drawerWidth = 240;
 
@@ -58,7 +60,13 @@ function DrawerAppBar({ children }) {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar component="nav">
-        <Toolbar sx={{display: "flex", justifyContent: "space-between", color: "white"}}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            color: "white",
+          }}
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -69,7 +77,6 @@ function DrawerAppBar({ children }) {
             <Menu />
           </IconButton>
 
-
           <Typography
             variant="h6"
             component="div"
@@ -77,7 +84,6 @@ function DrawerAppBar({ children }) {
           >
             MUI
           </Typography>
-
 
           <Box component="ul" sx={{ display: { xs: "none", sm: "flex" } }}>
             {navItems.map(item => (
@@ -99,12 +105,12 @@ function DrawerAppBar({ children }) {
             ))}
           </Box>
 
-          <SignUpBtn />
+          <Stack direction="row" spacing={2}>
+            <SignInBtn />
+            <SignUpBtn />
+          </Stack>
         </Toolbar>
       </AppBar>
-
-
-
 
       <nav>
         <Drawer

@@ -1,17 +1,19 @@
-import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from "./App"
-import FullScreenDialog from './components/RegisterModal';
-import { BrowserRouter } from 'react-router-dom';
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import DialogProvider from "./providers/AuthProvider";
+import { SnackbarProvider } from "notistack";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
     <BrowserRouter future={{ v7_startTransition: true }}>
-      <FullScreenDialog />
-      <App />
+      <SnackbarProvider />
+      <DialogProvider>
+        <App />
+      </DialogProvider>
     </BrowserRouter>
   </StrictMode>
 );
